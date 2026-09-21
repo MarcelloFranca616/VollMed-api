@@ -32,6 +32,13 @@ jobs:
         
       - name: Análise estática
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn sonar:sonar -Dsonar.projectKey=MarcelloFranca616_VollMed-api
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          mvn -B sonar:sonar
+          -Dsonar.projectKey=MarcelloFranca616_VollMed-api
+          -Dsonar.organization=<marcellofranca616>
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.token=$SONAR_TOKEN
+
+       

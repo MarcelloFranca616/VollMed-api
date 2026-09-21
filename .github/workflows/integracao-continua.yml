@@ -37,7 +37,7 @@ jobs:
         run: >
           mvn -B sonar:sonar
           -Dsonar.projectKey=MarcelloFranca616_VollMed-api
-          -Dsonar.organization=<marcellofranca616>
+          -Dsonar.organization=marcellofranca616
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=$SONAR_TOKEN
 

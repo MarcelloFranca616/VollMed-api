@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Configura JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: "21"
+          java-version: "17"
           distribution: "temurin"
           cache: "maven"
 
@@ -27,9 +27,9 @@ jobs:
       - name: Executa testes unitários
         run: mvn -B verify
 
-      - name: Gera relatório Jacoco
+      - name: Gera relatório JaCoCo
         run: mvn jacoco:prepare-agent verify
-        
+
       - name: Análise estática
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -40,5 +40,3 @@ jobs:
           -Dsonar.organization=marcellofranca616
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=$SONAR_TOKEN
-
-       

@@ -43,6 +43,6 @@ jobs:
               scp -o StrictHostKeyChecking=no -i deploy_key.pem docker-compose-prod.yaml $USER@$HOST:/home/ubuntu/
               scp -o StrictHostKeyChecking=no -i deploy_key.pem script_deploy.sh $USER@$HOST:/home/ubuntu/  
 
-              ssh -i deploy_key.pem $USER@HOST "chmod +x script-deploy.sh && ./script_deploy.sh"
+              ssh -i deploy_key.pem $USER@$HOST "chmod +x script_deploy.sh && ./script_deploy.sh"
 
               

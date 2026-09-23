@@ -30,9 +30,6 @@ jobs:
       - name: Imagens Docker
         run: docker ps -a
 
-      - name: Oi Amo
-        run: Echo Te amo
-
       - name: Deploy para EC2
         env:
             PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
@@ -42,7 +39,7 @@ jobs:
               echo "$PRIVATE_KEY" > deploy_key.pem
               chmod 600 deploy_key.pem
 
-              docker save -o vollmed-api.tar vollmed-api_api:latest
+              docker save -o vollmed-api.tar vollmed-api-api
 
               scp -o StrictHostKeyChecking=no -i deploy_key.pem vollmed-api.tar $USER@$HOST:/home/ubuntu/
               scp -o StrictHostKeyChecking=no -i deploy_key.pem init.sql $USER@$HOST:/home/ubuntu/

@@ -30,6 +30,9 @@ jobs:
       - name: Imagens Docker
         run: docker ps -a
 
+      - name: Oi Amo
+        run: Echo Te amo
+
       - name: Deploy para EC2
         env:
             PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}

@@ -1,3 +1,4 @@
+version: '3'
 services:
   mysqldb:
     image: mysql:8.0.36
@@ -14,7 +15,8 @@ services:
       - vollmed
   
   api:
-    image: vollmed-api-api:latest   
+    build: .
+    container_name: vollmed
     restart: unless-stopped
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/vollmed_api?createDatabaseIfNotExist=true

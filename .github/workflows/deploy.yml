@@ -27,6 +27,9 @@ jobs:
       - name: Gera relatório JaCoCo
         run: mvn jacoco:prepare-agent verify
 
+      - name: Imagens Docker
+        run: docker ps -a
+
       - name: Deploy para EC2
         env:
             PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}

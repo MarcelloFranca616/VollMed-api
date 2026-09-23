@@ -4,7 +4,7 @@ docker load -i vollmed-api.tar
 
 mv docker-compose-prod.yaml docker-compose.yaml
 
-container-ids=$(docker ps -q)
+container_ids=$(docker ps -q)
 
 if [ -z "$container_ids" ]; then
   echo "Nao ha container em execucao"
